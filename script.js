@@ -105,7 +105,7 @@
     });
 
     /* ----- Kontaktformular → Zapier Webhook ----- */
-    const ZAPIER_WEBHOOK = 'https://hooks.zapier.com/hooks/catch/9616404/uv4q7ii/';
+    const ZAPIER_WEBHOOK = 'https://hooks.zapier.com/hooks/catch/9616404/4ydr1b0/';
     const form     = $('#contactForm');
     const success  = $('#formSuccess');
     const errorBox = $('#formError');
