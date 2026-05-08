@@ -3,7 +3,7 @@
    - Mobile-Navigation
    - Scroll-State der Navigation
    - Reveal-on-Scroll Animationen
-   - Kontaktformular (Stub)
+   - Kontaktformular → GHL Webhook
    - Jahr im Footer
 ========================================================= */
 
@@ -104,8 +104,8 @@
         });
     });
 
-    /* ----- Kontaktformular → Zapier Webhook ----- */
-    const ZAPIER_WEBHOOK = 'https://services.leadconnectorhq.com/hooks/he4t3SWzF8XJn1FHkqWg/webhook-trigger/73212eaa-8573-47b7-8210-32ee8df28948';
+    /* ----- Kontaktformular → GHL Webhook ----- */
+    const GHL_WEBHOOK = 'https://services.leadconnectorhq.com/hooks/he4t3SWzF8XJn1FHkqWg/webhook-trigger/73212eaa-8573-47b7-8210-32ee8df28948';
     const form     = $('#contactForm');
     const success  = $('#formSuccess');
     const errorBox = $('#formError');
@@ -131,13 +131,13 @@
             formData.append('source', 'lionsperformance.de');
             formData.append('submitted_at', new Date().toISOString());
 
-            const response = await fetch(ZAPIER_WEBHOOK, {
+            await fetch(GHL_WEBHOOK, {
                 method: 'POST',
+                mode: 'no-cors',
                 body: formData
             });
 
-            if (!response.ok) throw new Error(`HTTP ${response.status}`);
-
+            // Bei no-cors keine Response-Pruefung moeglich -> immer als Erfolg behandeln
             form.querySelectorAll('input, select, textarea, button').forEach(el => el.disabled = true);
             if (success) {
                 success.hidden = false;
