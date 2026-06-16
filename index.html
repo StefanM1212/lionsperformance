@@ -172,7 +172,7 @@
                         Von 0 auf 6 Mio. € BWS Flughöhe pro Monat &mdash; konstant.
                     </h3>
                     <div class="case__video">
-                        <iframe src="https://www.youtube.com/embed/q24wCTXeLfk?start=14" title="Ian Mielenz – Lions Performance Erfahrungsbericht" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                        <iframe data-cookiesrc="https://www.youtube.com/embed/q24wCTXeLfk?start=14" title="Ian Mielenz – Lions Performance Erfahrungsbericht" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                     </div>
                     <div class="case__quote">
                         <p>"Wir sind heute konstant auf 6 Mio. € BWS-Flughöhe pro Monat &mdash; mit 24 produktiven Beratern im Team. Ohne Lions Performance wäre dieser systematische Aufbau in dieser Geschwindigkeit nicht möglich gewesen."</p>
@@ -205,7 +205,7 @@
                         Verzehnfachung &mdash; von 2.000 € auf über 20.000 € pro Monat.
                     </h3>
                     <div class="case__video">
-                        <iframe src="https://www.youtube.com/embed/63mc6WETAPY?start=16" title="Viktor Koza – Lions Performance Erfahrungsbericht" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                        <iframe data-cookiesrc="https://www.youtube.com/embed/63mc6WETAPY?start=16" title="Viktor Koza – Lions Performance Erfahrungsbericht" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                     </div>
                     <div class="case__quote">
                         <p>"Innerhalb weniger Monate habe ich mein Einkommen von 2.000 € auf über 20.000 € pro Monat verzehnfacht &mdash; planbar, skalierbar und mit klar messbarem ROAS. Das hätte ich vorher nie für möglich gehalten."</p>
@@ -238,7 +238,7 @@
                         Konstant über 30.000 € pro Monat &mdash; planbar skaliert.
                     </h3>
                     <div class="case__video">
-                        <iframe src="https://www.youtube.com/embed/ItN4V4N_VzA?start=11" title="Dennis Ulrich – Lions Performance Erfahrungsbericht" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                        <iframe data-cookiesrc="https://www.youtube.com/embed/ItN4V4N_VzA?start=11" title="Dennis Ulrich – Lions Performance Erfahrungsbericht" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                     </div>
                     <div class="case__quote">
                         <p>"Schon nach 12 Wochen hatte ich meinen ersten 17.500 €-Monat &mdash; heute liege ich konstant über 30.000 €. Endlich habe ich volle Kontrolle über meine Pipeline und bin nicht mehr von Empfehlungen abhängig."</p>
@@ -457,7 +457,7 @@
                 </li>
                 <li>
                     <span class="contact__label">E-Mail</span>
-                    <a href="mailto:michalea@lions-performance.com">michalea@lions-performance.com</a>
+                    <span class="email-protect" data-eu="info" data-ed="lions-performance.com" data-reveal></span>
                 </li>
                 <li>
                     <span class="contact__label">Antwortzeit</span>
@@ -467,6 +467,12 @@
         </div>
 
         <form class="contact__form" id="contactForm" novalidate>
+            <!-- Spamschutz: Honeypot — für Menschen unsichtbar, nur Bots füllen das aus -->
+            <div class="hp-field" aria-hidden="true">
+                <label for="hp_website">Website (bitte leer lassen)</label>
+                <input id="hp_website" name="hp_website" type="text" tabindex="-1" autocomplete="off" />
+            </div>
+
             <div class="field">
                 <label for="anrede">Anrede</label>
                 <select id="anrede" name="anrede" required>
@@ -494,7 +500,15 @@
 
             <div class="field">
                 <label for="telefon">Telefon</label>
-                <input id="telefon" name="telefon" type="tel" required autocomplete="tel" />
+                <div class="tel-group">
+                    <select id="telVorwahl" name="telVorwahl" aria-label="Ländervorwahl">
+                        <option value="+49" selected>🇩🇪 +49</option>
+                        <option value="+43">🇦🇹 +43</option>
+                        <option value="+41">🇨🇭 +41</option>
+                        <option value="+1">🇺🇸 +1</option>
+                    </select>
+                    <input id="telefon" name="telefon" type="tel" required autocomplete="tel" inputmode="tel" placeholder="151 23456789" />
+                </div>
             </div>
 
             <div class="field field--full">
@@ -521,7 +535,7 @@
             </p>
             <p class="form__error" id="formError" hidden>
                 Beim Senden ist ein Fehler aufgetreten. Bitte versuche es erneut oder schreib uns direkt an
-                <a href="mailto:michalea@lions-performance.com">michalea@lions-performance.com</a>.
+                <span class="email-protect" data-eu="info" data-ed="lions-performance.com" data-reveal></span>.
             </p>
         </form>
     </div>
